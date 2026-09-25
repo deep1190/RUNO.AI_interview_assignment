@@ -5,9 +5,30 @@ from zoneinfo import ZoneInfo
 TIMEZONE = ZoneInfo("Asia/Kolkata")
 
 
+
 def current_time(reference_date=None):
+    """
+    Return the reference datetime for relative date calculations.
+
+    An explicitly supplied reference_date takes priority.
+    Otherwise, use the configured demo date when demo mode is on.
+    """
     if reference_date is not None:
         return reference_date
+
+    from app.demo_config import get_reference_date, is_demo_mode
+
+    if is_demo_mode():
+        demo_date = get_reference_date()
+        return datetime(
+            demo_date.year,
+            demo_date.month,
+            demo_date.day,
+            12,
+            0,
+            0,
+            tzinfo=TIMEZONE,
+        )
 
     return datetime.now(TIMEZONE)
 

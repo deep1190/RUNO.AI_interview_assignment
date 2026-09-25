@@ -308,3 +308,31 @@ integration, and automated testing.
 
 The final application code is organized in `app/`, and the
 consolidated tests are organized in `tests/`.
+
+
+
+## Historical Dataset Demonstration Mode
+
+The supplied CRM dataset contains historical records from March 2025.
+
+To support meaningful demonstrations of relative-date queries
+without modifying the original records, the application provides
+an optional demonstration reference date.
+
+Configure `.env`:
+
+```dotenv
+DEMO_MODE=true
+DEMO_REFERENCE_DATE=2025-03-29
+```
+
+When enabled, relative periods such as today, yesterday,
+this week, and last seven days are calculated using the
+configured historical reference date.
+
+Explicit custom dates remain unchanged.
+
+Set `DEMO_MODE=false` to use the actual current date.
+
+The feature changes date interpretation only; it does not
+modify MongoDB records.
