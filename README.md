@@ -102,7 +102,7 @@ tests/
     test_role_intent.py
     test_copilot.py
 
-docs/
+documents/
     architecture.md
 
 README.md
@@ -116,8 +116,10 @@ requirements.txt
 ### 1. Clone the repository
 
 ```bash
-git clone <YOUR_PRIVATE_REPOSITORY_URL>
-cd <YOUR_REPOSITORY_DIRECTORY>
+
+git clone https://github.com/deep1190/RUNO.AI_interview_assignment.git
+cd RUNO.AI_interview_assignment
+
 ```
 
 ### 2. Create a virtual environment
