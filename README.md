@@ -79,6 +79,7 @@ The application follows this workflow:
 6. The result is returned as structured data.
 
 Gemini does not directly execute arbitrary MongoDB queries.
+
 ```mermaid
 flowchart TD
     A["User enters a natural-language question"]
@@ -107,7 +108,8 @@ flowchart TD
     J --> K
 ```
 
-See [Architecture](docs/architecture.md) for the detailed diagram.
+
+See [Architecture](documents/architecture.md) for the detailed diagram.
 
 ## Project Structure
 
