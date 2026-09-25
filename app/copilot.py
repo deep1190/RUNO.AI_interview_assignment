@@ -1,6 +1,8 @@
 
 import inspect
 
+from app.demo_config import get_demo_metadata
+
 from app.intent_parser import parse_intent
 
 from app.query_engine import (
@@ -141,6 +143,7 @@ def ask_copilot(question):
             "query_type": query_type,
             "parameters": filtered_parameters,
             "result": result,
+            "date_context": get_demo_metadata(),
         }
 
     except (TypeError, ValueError) as error:
