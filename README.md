@@ -80,6 +80,17 @@ The application follows this workflow:
 
 Gemini does not directly execute arbitrary MongoDB queries.
 
+flowchart TD
+    A[User enters question] --> B[CLI or FastAPI]
+    B --> C[Gemini intent parser]
+    C --> D[Extract query type and parameters]
+    D --> E[Copilot validates parameters]
+    E --> F[Select predefined query function]
+    F --> G[Apply date filters]
+    G --> H[(MongoDB CRM collections)]
+    H --> I[Return query result]
+    I --> J[Display answer to user]
+
 See [Architecture](docs/architecture.md) for the detailed diagram.
 
 ## Project Structure
