@@ -80,16 +80,34 @@ The application follows this workflow:
 
 Gemini does not directly execute arbitrary MongoDB queries.
 
+```mermaid
 flowchart TD
-    A[User enters question] --> B[CLI or FastAPI]
-    B --> C[Gemini intent parser]
-    C --> D[Extract query type and parameters]
-    D --> E[Copilot validates parameters]
-    E --> F[Select predefined query function]
-    F --> G[Apply date filters]
-    G --> H[(MongoDB CRM collections)]
-    H --> I[Return query result]
-    I --> J[Display answer to user]
+    A["User enters a natural-language question"]
+    B["CLI or FastAPI"]
+    C["Gemini Intent Parser"]
+    D["Extract query type and parameters"]
+    E{"Valid supported query?"}
+    F["Select predefined query function"]
+    G["Apply agent, customer, status and date filters"]
+    H["Date utilities and optional demo reference date"]
+    I[("MongoDB CRM Collections")]
+    J["Return structured query result"]
+    K["Display response to user"]
+    L["Return validation or unsupported-query message"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E -->|Yes| F
+    E -->|No| L
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+```
+
 
 See [Architecture](docs/architecture.md) for the detailed diagram.
 
