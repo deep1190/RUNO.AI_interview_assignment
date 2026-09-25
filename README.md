@@ -109,7 +109,7 @@ flowchart TD
 ```
 
 
-See [Architecture](docs/architecture.md) for the detailed diagram.
+See [Architecture](documents/architecture.md) for the detailed diagram.
 
 ## Project Structure
 
